@@ -11,18 +11,17 @@ const authRoutes = require("./routes/authRoutes")
 const cookieParser = require("cookie-parser")
 const app = express()
 
-const allowedOrigins = [
-    "https://mernauth-frontend-mmfw.onrender.com" // frontend url
-]
-
-
 app.use(express.json({extended : true, limit : "5mb"}))
 app.use(bodyParser.json({extended : true, limit : "5mb"}))
 app.use(bodyParser.urlencoded({extended : true}))
 app.use(cookieParser())
 
 // assign the allowed origins to the cors
-app.use(cors({credentials: true, origin : allowedOrigins}))
+app.use(cors({
+  origin: "https://mernauth-frontend-mmfw.onrender.com",
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 
 mongoose.connect(process.env.DB_URL)
