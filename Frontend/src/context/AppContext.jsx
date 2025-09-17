@@ -9,7 +9,7 @@ export const AppContextProvider = (props) =>{
        //  telling Axios to send cookies with requests to the backend
        axios.defaults.withCredentials = true;
 
-    const backendUrl =  "https://mernauth-backend-y0er.onrender.com" // importing the env variables 
+    const backendUrl =  "https://mernauth-backend-y0er.onrender.com"; // importing the env variables 
     const [isLoggedIn, setIsLoggedIn] = useState(false)  // for login 
     const [userData, setUserData] = useState(false) // for storing the data in userData
 
